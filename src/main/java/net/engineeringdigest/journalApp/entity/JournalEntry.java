@@ -18,5 +18,4 @@ public class JournalEntry {
     private String id;
     private String title;
     private String content;
-    private Date date;
 }
