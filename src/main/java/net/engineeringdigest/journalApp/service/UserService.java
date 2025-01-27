@@ -5,9 +5,12 @@ import net.engineeringdigest.journalApp.Repository.UserRepository;
 import net.engineeringdigest.journalApp.entity.JournalEntry;
 import net.engineeringdigest.journalApp.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -18,13 +21,20 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
     @Transactional
     public void saveEntry(User user){
-        System.out.println(user.getId());
-        System.out.println(user.getUsername());
-        System.out.println(user.getPassword());
         userRepository.save(user);
     }
+    @Transactional
+    public void saveNewUser(User user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles("User");
+        userRepository.save(user);
+    }
+
+
 //
 //    public void updateUserByUserName(String oldUsername, User user){
 //        System.out.println(oldUsername);
@@ -37,11 +47,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> getUserById(UUID id){
+    public Optional<User> getUserById(int id){
         return userRepository.findById(id);
     }
 
-    public void deleteUserById(UUID id){
+    public void deleteUserById(int id){
         userRepository.deleteById(id);
     }
 

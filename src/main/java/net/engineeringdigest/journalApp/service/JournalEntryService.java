@@ -6,6 +6,7 @@ import net.engineeringdigest.journalApp.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,11 +19,13 @@ public class JournalEntryService {
     @Autowired
     private UserService userService;
 
-
+    @Transactional
     public void saveEntry(JournalEntry journalEntry, String username){
         User user = userService.findByUsername(username);
+        System.out.println("Helllooo");
         JournalEntry saved = journalEntryRepository.save(journalEntry);
         user.getJournalEntries().add(saved);
+        user.setUsername(null);
         userService.saveEntry(user);
 
     }

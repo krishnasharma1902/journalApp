@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("journalApp")
+@RequestMapping("/journal")
 public class JournalEntryController {
 
     @Autowired
@@ -34,6 +34,7 @@ public class JournalEntryController {
     @PostMapping("/{username}")
     public ResponseEntity<JournalEntry> createEntry(@RequestBody JournalEntry myEntry, @PathVariable String username){
         try {
+            System.out.println("Hi");
             journalEntryService.saveEntry(myEntry,username);
             return new ResponseEntity<>(myEntry, HttpStatus.CREATED);
         }catch(Exception e){

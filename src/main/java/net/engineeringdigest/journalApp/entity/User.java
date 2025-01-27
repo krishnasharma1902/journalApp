@@ -7,7 +7,9 @@ import lombok.NonNull;
 import org.springframework.stereotype.Indexed;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -17,7 +19,7 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)  // or another strategy for UUID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // or another strategy for UUID
     private int id;
     @NonNull
     @Column(unique = true)
@@ -25,8 +27,11 @@ public class User {
     @NonNull
     private String password;
 
+    private String roles;
     @OneToMany
     private List<JournalEntry> journalEntries;
+
+
 
 
 }
