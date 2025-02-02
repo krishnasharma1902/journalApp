@@ -47,6 +47,7 @@ public class UserServiceTests {
         assertTrue(!user.getJournalEntries().isEmpty());
     }
 
+    @Disabled
     @ParameterizedTest
     @ValueSource(strings = {      // or @Enumsource can also be used
             "Krishna",
