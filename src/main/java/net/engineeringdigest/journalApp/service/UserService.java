@@ -30,7 +30,12 @@ public class UserService {
     @Transactional
     public void saveNewUser(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles("User");
+        userRepository.save(user);
+    }
+
+    @Transactional
+    public void saveAdmin(User user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 

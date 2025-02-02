@@ -12,7 +12,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
-import javax.xml.ws.Response;
 import java.util.*;
 
 @RestController
@@ -24,7 +23,6 @@ public class UserController {
 
     @PutMapping("/update-user")
     public ResponseEntity<?> updateUser(@RequestBody User user){
-
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         User userInDb = userService.findByUsername(username);
@@ -33,9 +31,9 @@ public class UserController {
         }
         userInDb.setUsername(user.getUsername());
         userInDb.setPassword(user.getPassword());
+        System.out.println(user.getPassword());
         userService.saveNewUser(userInDb);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-
     }
 
 

@@ -1,6 +1,5 @@
 package net.engineeringdigest.journalApp.entity;
 
-import com.sun.corba.se.spi.ior.ObjectId;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
