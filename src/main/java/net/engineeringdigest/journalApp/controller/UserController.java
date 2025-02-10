@@ -55,6 +55,14 @@ public class UserController {
 
     }
 
+    @GetMapping("/check-sentiment-entry")
+    public ResponseEntity<?> getUsersForSentimentAnalysis(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        return new ResponseEntity<>("Users for sentiment analysis : "+userService.getUsersForSentimentAnalysis(username), HttpStatus.OK);
+
+    }
+
 
 }
 

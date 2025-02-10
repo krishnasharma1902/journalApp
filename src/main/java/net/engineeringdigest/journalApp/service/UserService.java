@@ -85,4 +85,11 @@ public class UserService {
     public User findByUsername(String userName){
         return userRepository.findByUsername(userName);
     }
+
+    public List<String> getUsersForSentimentAnalysis(String userName){
+        List<String> usersForSA = userRepository.getUsersForSA();
+        return usersForSA;
+    }
+
+
 }

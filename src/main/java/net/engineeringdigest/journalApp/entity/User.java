@@ -20,13 +20,21 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // or another strategy for UUID
     private int id;
+
     @NonNull
     @Column(unique = true)
     private String username;
+
     @NonNull
     private String password;
 
+    private String email;
+
+    @Column(name = "sentiment_analysis")
+    private boolean sentimentAnalysis;
+
     private String roles;
+
     @OneToMany
     private List<JournalEntry> journalEntries;
 
