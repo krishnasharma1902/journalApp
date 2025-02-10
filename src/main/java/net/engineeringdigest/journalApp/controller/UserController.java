@@ -63,6 +63,14 @@ public class UserController {
 
     }
 
+    @GetMapping("/user-by-username-and-email")
+    public ResponseEntity<?> getUserByUsernameAndEmail(@RequestBody User user){
+        List<User> responseUser = userService.getUserByUsernameAndEmail(user.getUsername(), user.getEmail());
+        return new ResponseEntity<>(responseUser, HttpStatus.OK);
+
+    }
+
+
 
 }
 

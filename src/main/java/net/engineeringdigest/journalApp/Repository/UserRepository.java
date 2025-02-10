@@ -17,4 +17,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(value = "Select u.username from users u where email is NOT NULL and sentiment_analysis = true", nativeQuery = true)
     List<String> getUsersForSA();
 
+    @Query("Select u from User u where u.username = :userName and u.email = :email")
+    List<User> getUsersByUserNameAndEmail(@Param("userName") String userName, @Param("email")String email);
+
 }

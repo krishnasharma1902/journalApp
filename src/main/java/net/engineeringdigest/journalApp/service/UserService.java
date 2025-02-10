@@ -91,5 +91,12 @@ public class UserService {
         return usersForSA;
     }
 
+    public List<User> getUserByUsernameAndEmail(String username, String email){
+        System.out.println("Username : "+username+" Email : "+email);
+        List<User> userByUsernameAndEmail = userRepository.getUsersByUserNameAndEmail(username, email);
+        System.out.println(userByUsernameAndEmail.size());
+        return userByUsernameAndEmail;
+    }
+
 
 }
