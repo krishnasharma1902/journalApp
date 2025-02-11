@@ -69,6 +69,7 @@ public class JournalEntryController {
 
     @DeleteMapping("/delete-entry-by-id/{myId}")
     public ResponseEntity<?> deleteEntryById(@PathVariable Integer myId){
+        System.out.println("HIiiiiiiiiiiiii");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         if(journalEntryService.deleteEntryById(myId, username))

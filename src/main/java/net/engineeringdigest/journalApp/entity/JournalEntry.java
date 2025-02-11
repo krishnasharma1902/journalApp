@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.engineeringdigest.journalApp.enums.Sentiment;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -21,4 +22,6 @@ public class JournalEntry {
     private String title;
     private String content;
     private LocalDateTime date;
+    @Enumerated(EnumType.STRING)
+    private Sentiment sentiment;
 }

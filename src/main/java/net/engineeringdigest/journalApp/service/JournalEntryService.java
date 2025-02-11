@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +24,7 @@ public class JournalEntryService {
     public void saveEntry(JournalEntry journalEntry, String username){
         try {
             User user = userService.findByUsername(username);
+            journalEntry.setDate(LocalDateTime.now());
             JournalEntry saved = journalEntryRepository.save(journalEntry);
             user.getJournalEntries().add(saved);
             userService.saveEntry(user);
@@ -49,6 +51,7 @@ public class JournalEntryService {
     public boolean deleteEntryById(Integer id, String username){
         boolean removed;
         try {
+            System.out.println("Hiiiiiiii");
             User user = userService.findByUsername(username);
             removed = user.getJournalEntries().removeIf(x -> x.getId() == id);
             if (removed) {
