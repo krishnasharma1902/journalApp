@@ -1,6 +1,6 @@
 package net.engineeringdigest.journalApp.service;
 
-import net.engineeringdigest.journalApp.Repository.UserRepository;
+import net.engineeringdigest.journalApp.repository.UserRepository;
 import net.engineeringdigest.journalApp.entity.User;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

@@ -59,7 +59,7 @@ public class UserController {
     public ResponseEntity<?> getUsersForSentimentAnalysis(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
-        return new ResponseEntity<>("Users for sentiment analysis : "+userService.getUsersForSentimentAnalysis(username), HttpStatus.OK);
+        return new ResponseEntity<>("Users for sentiment analysis : "+userService.getUserNamesForSA(username), HttpStatus.OK);
 
     }
 

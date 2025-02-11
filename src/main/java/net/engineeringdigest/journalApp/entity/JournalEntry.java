@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -19,4 +20,5 @@ public class JournalEntry {
     private int id;
     private String title;
     private String content;
+    private LocalDateTime date;
 }

@@ -1,10 +1,8 @@
 package net.engineeringdigest.journalApp.service;
 
-import net.engineeringdigest.journalApp.Repository.JournalEntryRepository;
+import net.engineeringdigest.journalApp.repository.JournalEntryRepository;
 import net.engineeringdigest.journalApp.entity.JournalEntry;
 import net.engineeringdigest.journalApp.entity.User;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

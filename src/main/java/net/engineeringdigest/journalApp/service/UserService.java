@@ -1,22 +1,16 @@
 package net.engineeringdigest.journalApp.service;
 
 import lombok.extern.slf4j.Slf4j;
-import net.engineeringdigest.journalApp.Repository.JournalEntryRepository;
-import net.engineeringdigest.journalApp.Repository.UserRepository;
-import net.engineeringdigest.journalApp.entity.JournalEntry;
+import net.engineeringdigest.journalApp.repository.UserRepository;
 import net.engineeringdigest.journalApp.entity.User;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Component
 @Slf4j
@@ -86,8 +80,8 @@ public class UserService {
         return userRepository.findByUsername(userName);
     }
 
-    public List<String> getUsersForSentimentAnalysis(String userName){
-        List<String> usersForSA = userRepository.getUsersForSA();
+    public List<String> getUserNamesForSA(String userName){
+        List<String> usersForSA = userRepository.getUserNamesForSA();
         return usersForSA;
     }
 

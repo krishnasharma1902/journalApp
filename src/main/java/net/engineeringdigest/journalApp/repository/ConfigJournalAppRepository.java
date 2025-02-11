@@ -1,4 +1,4 @@
-package net.engineeringdigest.journalApp.Repository;
+package net.engineeringdigest.journalApp.repository;
 
 import net.engineeringdigest.journalApp.entity.ConfigJournalApp;
 import org.springframework.data.jpa.repository.JpaRepository;
