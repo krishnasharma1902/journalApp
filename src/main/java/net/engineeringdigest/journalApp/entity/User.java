@@ -38,7 +38,4 @@ public class User {
     @OneToMany
     private List<JournalEntry> journalEntries;
 
-
-
-
 }
